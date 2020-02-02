@@ -10,16 +10,7 @@ export class RegistroComponent implements OnInit {
   nombre = 'Sergio';
   correo = 'sergiohidalgocaceres@gmail.com';
 
-  constructor() {
-    setTimeout(() => {
-      this.titulo = 'Registro de Participante';
-    }, 3000);
-  }
-
-  tipeo(evt) {
-    this.correo = evt.target.value;
-    /* console.log(evt.target.value); */
-  }
+  constructor() {}
 
   ngOnInit() {}
 }

@@ -4,16 +4,17 @@
 			<h3>{{titulo}}</h3>
 
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Nombre" value="{{nombre}}">
+				<input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nombre" name="nombre">
 			</div>
 
 			<div class="form-group">
-				<input type="text" class="form-control" [value]="correo" placeholder="Correo" (input)="tipeo($event)">
+				<input type="text" class="form-control" placeholder="Correo" [(ngModel)]="correo" name="correo">
 			</div>
 			<p>{{correo}}</p>
 
 			<div class="form-group">
-				<input type="password" class="form-control" placeholder="Contraseña">
+				<input type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="contrasena"
+					name="contrasena">
 			</div>
 
 			<div class="d-flex justify-content-center">
