@@ -4,12 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './registro/registro.component';
 
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ParticipanteService } from './services/participante.service';
 
 @NgModule({
   declarations: [AppComponent, RegistroComponent],
-  imports: [BrowserModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, ReactiveFormsModule],
+  providers: [ParticipanteService],
   bootstrap: [RegistroComponent],
 })
 export class AppModule {}
