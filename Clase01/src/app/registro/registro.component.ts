@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Participante } from '../models/participante';
 
 @Component({
   selector: 'app-registro',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
   titulo = 'Registro';
-  nombre = 'Sergio';
-  correo = 'sergiohidalgocaceres@gmail.com';
+
+  participante: Participante = { nombre: '', correo: '', contrasena: '' };
 
   constructor() {}
 
   ngOnInit() {}
+
+  conversion(obj) {
+    return JSON.stringify(obj);
+  }
 }
