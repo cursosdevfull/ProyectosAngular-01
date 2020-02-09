@@ -9,7 +9,6 @@ import {
 } from '@angular/forms';
 import { ParticipanteService } from '../services/participante.service';
 import { ValidatorsFields } from '../validadores/validators-fields';
-import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
