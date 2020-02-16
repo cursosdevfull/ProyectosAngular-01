@@ -1,0 +1,9 @@
+.centrado {
+  height: 100vh;
+}
+
+span.error {
+  font-size: 12px;
+  font-style: italic;
+  color: red;
+}

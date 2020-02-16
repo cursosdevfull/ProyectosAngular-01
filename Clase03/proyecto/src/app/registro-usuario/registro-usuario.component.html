@@ -1,0 +1,36 @@
+<div class="row justify-content-center align-items-center centrado">
+	<div class="card col-4 mt-4">
+		<form class="p-4" [formGroup]="grupo">
+			<h4>Registro</h4>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Nombre" name="nombre" formControlName="nombre">
+				<span class="error" *ngIf="grupo.get('nombre').touched && grupo.get('nombre').hasError('required')">El
+					nombre es requerido</span>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Correo" name="correo" formControlName="correo">
+				<span class="error" *ngIf="grupo.get('correo').touched && grupo.get('correo').hasError('required')">El
+					correo es requerido</span>
+				<span class="error" *ngIf="grupo.get('correo').touched && grupo.get('correo').hasError('pattern')">Debe
+					tener formato de correo</span>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="Contraseña" name="contrasena"
+					formControlName="contrasena">
+				<span class="error"
+					*ngIf="grupo.get('contrasena').touched && grupo.get('contrasena').hasError('required')">La
+					contraseña es requerida</span>
+			</div>
+			<div>
+				<button class="btn btn-success btn-block" [disabled]="grupo.invalid"
+					(click)="register()">Registrar</button>
+			</div>
+			<div>
+				<button class="btn btn-warning btn-block" (click)="irALogin()">
+					Ir al login
+				</button>
+			</div>
+			{{mensajeError}}
+		</form>
+	</div>
+</div>
