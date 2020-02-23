@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const publicVapidKey =
-  'BKRP_MqxioyqDt5fDL2-vKwBhxqNjC4UdVWAhEU0OhQHzYh2yfTaRyYnJftnNv6df7SslKng0n73Ycj8Dv_xeFk';
-const privateVapidKey = 'jBJgPJ0YfMi4bw7syYb8I5N7YD76nJodLF9UWAcl_rY ';
+  'BJdT_vdKMt3jldMnX2E34U10cwdKGPZlgiRcrC6Bnade5cUin2iMe4d5bzDXQedoUvIRARhvhhUNOiVpZ4eGFGk';
+const privateVapidKey = 'aeqEHgKuxsgLWF5SD9jZaCPVHaQnX9Rp_OimhUcXrKY';
 
 webpush.setVapidDetails(
   'mailto: prueba@test.com',
@@ -22,6 +22,7 @@ let suscripcion;
 
 app.post('/suscribe', (req, res) => {
   suscripcion = req.body;
+  console.log(suscripcion);
 
   res.status(201).json({ status: 'Suscripción correcta' });
 

@@ -1,0 +1,4 @@
+Voluntary Application Server Identification for Web Push
+
+npm install -g web-push
+web-push generate-vapid-keys

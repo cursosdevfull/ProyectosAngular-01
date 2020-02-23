@@ -1,0 +1,8 @@
+apollo-angular
+apollo-angular-link-http
+apollo-cache-inmemory
+graphql-tag
+apollo-client
+apollo-link
+apollo-codegen
+

@@ -1,0 +1,11 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Lastname</th>
+	</tr>
+	<tr *ngFor="let user of users">
+		<td>{{user.name}}</td>
+		<td>{{user.lastname}}</td>
+	</tr>
+</table>
+<button (click)="insertar()">Insertar</button>

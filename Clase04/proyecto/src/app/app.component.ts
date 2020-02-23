@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Subscription } from 'rxjs';
+import { NotificacionesService } from './services/notificaciones.service';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,15 @@ export class AppComponent implements OnDestroy {
   userLogged = false;
   suscripcion: Subscription;
 
-  constructor(private readonly authService: AuthService) {
+  constructor(
+    private readonly authService: AuthService,
+    private notificacionesService: NotificacionesService
+  ) {
     /* this.userLogged = this.authService.isUserLogged(); */
     this.suscripcion = this.authService.onChangeStatusUser.subscribe(status => {
       this.userLogged = status;
     });
+    this.notificacionesService.inicio();
   }
 
   ngOnDestroy() {
