@@ -1,0 +1,22 @@
+<button (click)="agregar()">Agregar</button>
+
+<div class="row justify-content-center">
+	<table class="mt-4 table table-striped table-hover col-6">
+		<thead class="thead-dark">
+			<tr>
+				<th>Título</th>
+				<th>Descripción</th>
+				<th>Imagen</th>
+			</tr>
+		</thead>
+		<tr *ngFor="let receta of listaRecetas | async">
+			<td>{{receta.titulo}}
+				<a [routerLink]="['edicion',receta._id]">Editar</a>
+			</td>
+			<td>{{receta.descripcion}}</td>
+			<td>
+				<img [src]="obtenerRutaImagen(receta.foto)">
+			</td>
+		</tr>
+	</table>
+</div>

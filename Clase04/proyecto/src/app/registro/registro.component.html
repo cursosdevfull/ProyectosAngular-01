@@ -1,0 +1,98 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<form class="col-6" [formGroup]="grupo">
+			<h3>{{titulo}}</h3>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Nombre" name="nombre" formControlName="nombre">
+				<span class="error" *ngIf="grupo.get('nombre').hasError('required') && grupo.get('nombre').touched">El
+					nombre es requerido</span>
+			</div>
+
+			<div>
+				<p>Marque su sexo</p>
+				<div class="row">
+					<label *ngFor="let sexo of sexos; let indice=index">
+						<input type="radio" name="sexo" formControlName="sexo" [value]="indice">
+						{{sexo}}
+					</label>
+					<span class="error" *ngIf="grupo.get('sexo').touched && grupo.get('sexo').invalid">Seleccione su
+						sexo</span>
+				</div>
+			</div>
+			<div class="form-group" formGroupName="identificacion">
+				<input type="text" class="form-control" placeholder="DNI" formControlName="dni">
+				<span class="error"
+					*ngIf="grupo.get('identificacion.dni').touched && grupo.get('identificacion.dni').hasError('required')">El
+					DNI es obligatorio</span>
+				<span class="error"
+					*ngIf="grupo.get('identificacion.dni').touched && grupo.get('identificacion.dni').hasError('pattern')">Debe
+					tener 8 dígitos</span>
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Correo" name="correo" formControlName="correo">
+				<span class="error" *ngIf="grupo.get('correo').hasError('required') && grupo.get('correo').touched">El
+					correo es necesario</span>
+				<span class="error" *ngIf="grupo.get('correo').hasError('pattern') && grupo.get('correo').touched">El
+					formato no es correcto</span>
+				<span class="error"
+					*ngIf="grupo.get('correo').hasError('correoGratuito') && grupo.get('correo').touched">No se aceptan
+					correos gratuitos</span>
+			</div>
+
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="Contraseña" name="contrasena"
+					formControlName="contrasena">
+				<span class="error"
+					*ngIf="grupo.get('contrasena').hasError('required') && grupo.get('contrasena').touched">La
+					contraseña es obligatoria</span>
+			</div>
+
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="Confirmación" name="confirmacion"
+					formControlName="confirmacion">
+				<span class="error"
+					*ngIf="grupo.get('confirmacion').hasError('required') && grupo.get('confirmacion').touched">La
+					confirmación es obligatoria</span>
+				<span class="error"
+					*ngIf="grupo.get('confirmacion').hasError('confirmacionNoCoincide') && grupo.get('confirmacion').touched">La
+					contraseña y la confirmación no coinciden</span>
+			</div>
+			<div formArrayName="pasatiempos">
+				<p><strong>Pasatiempos</strong></p>
+				<button class="btn btn-warning" (click)="agregarPasatiempo()">Agregar</button>
+				<div class="form-group row" *ngFor="let control of grupo.get('pasatiempos').controls; let indice=index">
+					<input type="text" class="form-control col-8" [formControlName]="indice" [name]="indice">
+					<button class="btn btn-danger col-4" (click)="eliminarPasatiempo(indice)">Eliminar</button>
+					<span class="error"
+						*ngIf="grupo.get('pasatiempos').controls[indice].touched && grupo.get('pasatiempos').controls[indice].invalid">El
+						pasatiempo es obligatorio</span>
+				</div>
+			</div>
+
+			<div formArrayName="intereses">
+				<div *ngFor="let control of grupo.get('intereses').controls; let indice = index">
+					<label>
+						<input type="checkbox" [formControlName]="indice" [name]="indice">{{intereses[indice]}}
+					</label>
+				</div>
+				<span class="error" *ngIf="grupo.get('intereses').touched && grupo.get('intereses').invalid">Debe
+					seleccionar 2 checks al menos</span>
+			</div>
+			<div>
+				<label>
+					<input type="checkbox" formControlName="terminos" name="terminos"> Aceptar términos y condiciones
+				</label>
+				<span class="error" *ngIf="grupo.get('terminos').touched && grupo.get('terminos').invalid">Debe aceptar
+					los términos y condiciones</span>
+
+			</div>
+
+			<div class="d-flex justify-content-center">
+				<button class="btn btn-success" (click)="registroParticipante()">Registrar</button>
+			</div>
+
+		</form>
+	</div>
+</div>
