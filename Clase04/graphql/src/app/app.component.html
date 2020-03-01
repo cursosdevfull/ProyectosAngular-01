@@ -8,4 +8,18 @@
 		<td>{{user.lastname}}</td>
 	</tr>
 </table>
-<button (click)="insertar()">Insertar</button>
+<div class="col-6">
+	<form [formGroup]="grupo">
+		<div class="form-group">
+			<input type="text" class="form-control" name="nombe" placeholder="Nombre" formControlName="nombre">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" name="apellido" placeholder="Apellido" formControlName="apellido">
+		</div>
+		<div>
+			<button type="button" class="btn btn-success btn-block" (click)="insertar()">
+				Insertar
+			</button>
+		</div>
+	</form>
+</div>

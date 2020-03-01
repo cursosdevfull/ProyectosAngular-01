@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
 import { switchMap } from 'rxjs/operators';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,22 +9,33 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  users = [];
+  users: Array<{}> = [];
+  grupo: FormGroup;
 
   constructor(private readonly dataService: DataService) {}
 
   ngOnInit() {
+    this.grupo = new FormGroup({
+      nombre: new FormControl(null, Validators.required),
+      apellido: new FormControl(null, Validators.required)
+    });
+
     this.listar();
   }
 
   listar() {
     this.dataService.list().subscribe(data => {
-      console.log(data);
-      this.users = data.listUsers;
+      this.users = [...data.listUsers];
     });
   }
 
   insertar() {
-    this.dataService.insert('Juan', 'Pérez').subscribe(() => this.listar());
+    const nombre = this.grupo.value.nombre;
+    const apellido = this.grupo.value.apellido;
+
+    this.dataService.insert(nombre, apellido).subscribe(() => {
+      this.listar();
+      this.grupo.reset();
+    });
   }
 }

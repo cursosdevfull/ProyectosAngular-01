@@ -1,12 +1,12 @@
 'use strict';
 
 self.addEventListener('push', evt => {
-  const body = evt.data.text();
+  const body = JSON.parse(evt.data.text());
   console.log(body);
 
-  const titulo = 'Notificaciones Push';
+  const titulo = body.notification.title;
   const opciones = {
-    body: 'cualquier cosa',
+    body: body.notification.body,
   };
 
   evt.waitUntil(self.registration.showNotification(titulo, opciones));
