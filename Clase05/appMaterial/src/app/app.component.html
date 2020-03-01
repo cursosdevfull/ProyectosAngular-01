@@ -4,7 +4,10 @@
 	</mat-sidenav>
 	<mat-sidenav-content>
 		<mat-toolbar color="primary">
-			<button (click)="menuLateral.open()" *ngIf="(handset | async) ? true: false">Abrir</button>
+			<button mat-icon-button (click)="menuLateral.open()" *ngIf="(handset | async) ? true: false">
+				<mat-icon>menu</mat-icon>
+			</button>
 		</mat-toolbar>
+		<router-outlet></router-outlet>
 	</mat-sidenav-content>
 </mat-sidenav-container>

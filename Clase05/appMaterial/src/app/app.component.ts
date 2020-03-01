@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { pluck, map } from 'rxjs/operators';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,8 @@ import { pluck, map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'appMaterial';
   handset: Observable<boolean>;
+  group: FormGroup;
 
   constructor(private readonly breakpointObserver: BreakpointObserver) {
     this.handset = this.breakpointObserver

@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 
 @include mat-core();
 
@@ -35,7 +35,7 @@ $mat-naranja: (
   )
 );
 
-$appMaterial-primary: mat-palette($mat-naranja);
+$appMaterial-primary: mat-palette($mat-indigo);
 $appMaterial-accent: mat-palette($mat-pink, A200, A100, A400);
 
 $appMaterial-warn: mat-palette($mat-red);
