@@ -62,17 +62,18 @@
 			<div formArrayName="pasatiempos">
 				<p><strong>Pasatiempos</strong></p>
 				<button class="btn btn-warning" (click)="agregarPasatiempo()">Agregar</button>
-				<div class="form-group row" *ngFor="let control of grupo.get('pasatiempos').controls; let indice=index">
+				<div class="form-group row"
+					*ngFor="let control of grupo.get('pasatiempos')['controls']; let indice=index">
 					<input type="text" class="form-control col-8" [formControlName]="indice" [name]="indice">
 					<button class="btn btn-danger col-4" (click)="eliminarPasatiempo(indice)">Eliminar</button>
 					<span class="error"
-						*ngIf="grupo.get('pasatiempos').controls[indice].touched && grupo.get('pasatiempos').controls[indice].invalid">El
+						*ngIf="grupo.get('pasatiempos')['controls'][indice].touched && grupo.get('pasatiempos')['controls'][indice].invalid">El
 						pasatiempo es obligatorio</span>
 				</div>
 			</div>
 
 			<div formArrayName="intereses">
-				<div *ngFor="let control of grupo.get('intereses').controls; let indice = index">
+				<div *ngFor="let control of grupo.get('intereses')['controls']; let indice = index">
 					<label>
 						<input type="checkbox" [formControlName]="indice" [name]="indice">{{intereses[indice]}}
 					</label>

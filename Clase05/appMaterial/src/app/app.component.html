@@ -1,0 +1,10 @@
+<mat-sidenav-container>
+	<mat-sidenav #menuLateral [mode]="(handset | async) ? 'over': 'side'" [opened]="(handset |async) ? false : true"
+		position="start">Menú lateral
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<button (click)="menuLateral.open()" *ngIf="(handset | async) ? true: false">Abrir</button>
+		</mat-toolbar>
+	</mat-sidenav-content>
+</mat-sidenav-container>
