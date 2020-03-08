@@ -1,0 +1,15 @@
+header {
+  padding-left: 80px;
+}
+h3 {
+  text-align: left;
+  line-height: 110px;
+  font-size: 35px;
+  margin: 0 !important;
+}
+
+:host {
+  width: 100%;
+  background-color: #efe8e8;
+  margin-bottom: 40px;
+}

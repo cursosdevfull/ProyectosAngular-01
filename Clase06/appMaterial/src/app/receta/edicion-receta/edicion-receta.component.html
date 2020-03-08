@@ -1,0 +1,30 @@
+<mat-toolbar color="warn" fxLayot fxLayoutAlign="space-between center">
+	<h2>{{titulo}}</h2>
+	<button mat-icon-button mat-dialog-close>
+		<mat-icon>close</mat-icon>
+	</button>
+</mat-toolbar>
+<div mat-dialog-container>
+	<div mat-dialog-content>
+		<form [formGroup]="group" fxLayout="column">
+			<mat-form-field appareance="outline">
+				<mat-label>Título</mat-label>
+				<input type="text" matInput name="titulo" formControlName="titulo" required>
+			</mat-form-field>
+			<mat-form-field appareance="outline">
+				<mat-label>Descripción</mat-label>
+				<textarea name="descripcion" matInput formControlName="descripcion"></textarea>
+			</mat-form-field>
+		</form>
+		<div class="mat-dialog-actions" fxLayoutAlign="end">
+			<button mat-flat-button color="primary" (click)="save()" [disabled]="group.invalid">
+				<mat-icon>save</mat-icon>
+				Grabar
+			</button>
+			<button mat-button mat-dialog-close>
+				Cancelar
+			</button>
+		</div>
+	</div>
+
+</div>

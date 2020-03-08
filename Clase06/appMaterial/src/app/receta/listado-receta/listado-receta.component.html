@@ -1,0 +1,44 @@
+<div fxLayout="column" fxLayoutAlign="start center" class="container">
+	<!-- 	<mat-sidenav #form_agregar position="end" mode="side">Formulario</mat-sidenav> -->
+	<app-header title="Recetas"></app-header>
+
+	<mat-card fxLayout fxLayoutAlign="center" class="mat-elevation-z15">
+		<table mat-table [dataSource]="recetas" fxFlex="800px">
+			<ng-container matColumnDef="titulo">
+				<th mat-header-cell *matHeaderCellDef>Título</th>
+				<td mat-cell *matCellDef="let fila"> {{fila.titulo}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="descripcion">
+				<th mat-header-cell *matHeaderCellDef>Descripción</th>
+				<td mat-cell *matCellDef="let fila"> {{fila.descripcion}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="imagen">
+				<th mat-header-cell *matHeaderCellDef>Título</th>
+				<td mat-cell *matCellDef="let fila"> {{fila.imagen}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="acciones">
+				<th mat-header-cell *matHeaderCellDef></th>
+				<td mat-cell *matCellDef="let fila; let indice = index">
+					<button mat-icon-button color="accent" (click)="showModal({modo:'edit', info:fila})">
+						<mat-icon>edit</mat-icon>
+					</button>
+					<button mat-icon-button color="warn" (click)="confirm(indice)">
+						<mat-icon>delete</mat-icon>
+					</button>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="columnasAMostrar"></tr>
+			<tr mat-row *matRowDef="let elem; columns: columnasAMostrar"></tr>
+		</table>
+	</mat-card>
+
+	<button mat-fab color="accent" class="boton boton_agregar" (click)="showModal()">
+		<mat-icon>add</mat-icon>
+	</button>
+
+
+</div>

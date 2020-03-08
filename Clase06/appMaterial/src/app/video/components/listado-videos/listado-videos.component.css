@@ -1,0 +1,12 @@
+.container {
+  min-height: calc(100vh - 68px);
+}
+
+.boton {
+  position: fixed;
+}
+
+.boton.boton_agregar {
+  right: 40px;
+  bottom: 100px;
+}

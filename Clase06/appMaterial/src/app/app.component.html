@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+	<mat-sidenav #menuLateral [mode]="(handset | async) ? 'over': 'side'" [opened]="(handset |async) ? false : true"
+		position="start">
+		<mat-nav-list>
+			<h2>Menú</h2>
+			<a mat-list-item routerLink="/receta">Recetas</a>
+			<a mat-list-item routerLink="/video">Videos</a>
+		</mat-nav-list>
+
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<button mat-icon-button (click)="menuLateral.open()" *ngIf="(handset | async) ? true: false">
+				<mat-icon>menu</mat-icon>
+			</button>
+		</mat-toolbar>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>

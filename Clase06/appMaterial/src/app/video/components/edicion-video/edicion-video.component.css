@@ -1,0 +1,12 @@
+.contenedorModal .mat-dialog-container {
+  width: 500px;
+  padding: 0 !important;
+}
+
+.contenedorModal .mat-dialog-content {
+  margin: 0 !important;
+}
+
+.contenedorModal .mat-dialog-actions {
+  margin: 0 !important;
+}

@@ -1,0 +1,31 @@
+<div fxLayout fxLayoutAlign="center center" class="contenedor">
+	<mat-card fxFlex="1 1 500px" fxFlex.lt-sm="1 1 300px">
+		<mat-card-header>
+			<mat-card-title>
+				<h2>Login</h2>
+			</mat-card-title>
+		</mat-card-header>
+		<mat-card-content>
+			<form [formGroup]="group" fxLayout="column">
+				<mat-form-field appearance="outline">
+					<mat-icon matSuffix>email</mat-icon>
+					<mat-label>Correo</mat-label>
+					<input type="text" matInput required formControlName="correo" name="correo">
+					<mat-error *ngIf="group.get('correo').hasError('required')">El correo es obligatorio</mat-error>
+					<mat-error *ngIf="group.get('correo').hasError('email')">Debe tener formato de correo</mat-error>
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-icon matSuffix>lock</mat-icon>
+					<mat-label>Contraseña</mat-label>
+					<input type="password" matInput required formControlName="contrasena" name="contrasena">
+					<mat-error *ngIf="group.get('contrasena').hasError('required')">La contraseña es obligatoria
+					</mat-error>
+				</mat-form-field>
+			</form>
+		</mat-card-content>
+		<mat-card-actions fxLayout fxLayoutAlign="center" fxLayout.lt-sm="column">
+			<button mat-flat-button color="primary" (click)="login()">Ingresar</button>
+			<button mat-button color="accent">¿Olvidó su contraseña?</button>
+		</mat-card-actions>
+	</mat-card>
+</div>
