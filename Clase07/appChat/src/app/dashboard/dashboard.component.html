@@ -1,0 +1,44 @@
+<div class="contenedor" fxLayout fxLayoutAlign="center center">
+
+	<mat-card fxFlex="1 1 400px">
+		<div fxLayout fxLayoutAlign="center">
+			<button mat-flat-button color="accent" (click)="logout()">
+				Logout
+			</button>
+		</div>
+	</mat-card>
+
+	<div class="whatsapp" [ngClass]="{open: statusPanel}" fxLayout="column">
+		<header fxLayout>
+			<button class="icono" mat-button (click)="statusPanel=true">
+				<mat-icon>chat</mat-icon>
+			</button>
+			<div fxLayout fxLayoutAlign="space-between center" fxFlex="1 1 auto">
+				<div class="title">{{tittle}}</div>
+				<button mat-icon-button (click)="statusPanel=false">
+					<mat-icon>close</mat-icon>
+				</button>
+			</div>
+		</header>
+		<div class="zoneMessages" fxLayout>
+			<div class="users" fxFlex="1 1 70px">
+				<app-member *ngFor="let user of users; let indice = index" [member]="user" [selectedUser]="selectedUser"
+					(click)="openPanel(user, indice)"></app-member>
+			</div>
+			<div class="messages" fxLayout="column" fxLayoutAlign="space-between" fxFlex="1 1 auto">
+				<div class="list">
+					<app-list-messages [user]="selectedUser" *ngIf="selectedUser"></app-list-messages>
+				</div>
+				<div class="input" fxFlex="1 1 80px" fxLayout="column">
+					<mat-form-field appearance="outline">
+						<input type="text" matInput placeholder="Tipee aquí su mensaje" [(ngModel)]="textInput"
+							(keyup)="$event.keyCode==13 && sentMessage()">
+						<button mat-icon-button matSuffix (click)="sentMessage()">
+							<mat-icon>send</mat-icon>
+						</button>
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

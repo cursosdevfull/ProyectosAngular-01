@@ -1,0 +1,25 @@
+<div fxLayout="column" class="containerMessage">
+	<div fxLayout *ngIf="message.id!=id; else myMessage">
+		<div fxFlex="1 1 40px">
+			<img [src]="getUrlPhoto(message.photo)" alt="">
+		</div>
+		<div class="textMessage" fxFlex="1 1 auto">
+			{{message.mensaje}}
+		</div>
+	</div>
+	<span *ngIf="message.id!=id">
+		{{message.fechaHora | date:"dd/MM/yy hh:mm a"}}
+	</span>
+	<ng-template #myMessage>
+		<div fxLayout class="ownMessage">
+			<div fxFlex="1 1 80px"></div>
+			<div class="textMessage" fxFlex="1 1 auto">
+				{{message.mensaje}}
+			</div>
+		</div>
+		<span>
+			{{message.fechaHora | date:"dd/MM/yy hh:mm a"}}
+		</span>
+	</ng-template>
+
+</div>

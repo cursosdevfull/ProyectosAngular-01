@@ -1,0 +1,19 @@
+<mat-card fxFlex="1 1 400px">
+	<form fxLayout="column" [formGroup]="group">
+		<h2>Login</h2>
+		<mat-form-field appareance="outline">
+			<mat-label>Correo</mat-label>
+			<input type="text" name="email" matInput required formControlName="email">
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Contraseña</mat-label>
+			<input type="password" name="password" matInput required formControlName="password">
+		</mat-form-field>
+		<div fxLayout fxLayoutAlign="center">
+			<button mat-flat-button color="primary" [disabled]="group.invalid" (click)="login()">Ingresar</button>
+		</div>
+		<div fxLayout fxLayoutAlign="center">
+			<button mat-button color="accent" (click)="register()">¿No tienes cuenta? haz clic aquí</button>
+		</div>
+	</form>
+</mat-card>

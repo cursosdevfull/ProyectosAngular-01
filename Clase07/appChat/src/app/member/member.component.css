@@ -1,0 +1,14 @@
+div {
+  width: 70px;
+  height: 70px;
+}
+
+div.selected {
+  border-right: 2px solid orange;
+}
+
+img {
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}

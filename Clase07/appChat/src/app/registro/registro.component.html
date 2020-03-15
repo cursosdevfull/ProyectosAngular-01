@@ -1,0 +1,26 @@
+<mat-card fxFlex="1 1 400px">
+	<form fxLayout="column" [formGroup]="group">
+		<h2>Registro</h2>
+		<mat-form-field appareance="outline">
+			<mat-label>Nombre</mat-label>
+			<input type="text" name="name" matInput required formControlName="name">
+		</mat-form-field>
+		<mat-form-field appareance="outline">
+			<mat-label>Correo</mat-label>
+			<input type="text" name="email" matInput required formControlName="email">
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Contraseña</mat-label>
+			<input type="password" name="password" matInput required formControlName="password">
+		</mat-form-field>
+		<div>
+			<input type="file" name="photo" (change)="selectedFile($event.target.files[0])">
+		</div>
+		<div fxLayout fxLayoutAlign="center">
+			<button mat-flat-button color="primary" (click)="register()" [disabled]="group.invalid">Registrar</button>
+		</div>
+		<div fxLayout fxLayoutAlign="center">
+			<button mat-button color="accent" (click)="login()">Volver al login</button>
+		</div>
+	</form>
+</mat-card>

@@ -1,0 +1,13 @@
+mat-sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav-content {
+  height: 100vh;
+  padding-right: 70px;
+  background-color: #e0dddd;
+}
+
+.fullscreen {
+  height: 100vh;
+}
