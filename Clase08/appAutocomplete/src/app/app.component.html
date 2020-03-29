@@ -1,0 +1,10 @@
+<form>
+	<mat-form-field>
+		<input type="text" matInput [matAutocomplete]="auto" [formControl]="ctrl">
+		<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+			<mat-option *ngFor="let opcion of opcionesFiltradas | async" [value]="opcion">
+				{{opcion}}
+			</mat-option>
+		</mat-autocomplete>
+	</mat-form-field>
+</form>
