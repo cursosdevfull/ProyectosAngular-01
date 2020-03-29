@@ -1,0 +1,34 @@
+<ngx-charts-bar-vertical [view]="view" [results]="results" [gradient]="gradient" [scheme]="scheme" [xAxis]="xAxis"
+	[yAxis]="yAxis" [legend]="legend" [legendPosition]="legendPosition" [legendTitle]="legendTitle"
+	[xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [showXAxisLabel]="showXAxisLabel"
+	[showYAxisLabel]="showYAxisLabel" [yScaleMin]="yScaleMin" [yScaleMax]="yScaleMax" [showGridLines]="showGridLines">
+</ngx-charts-bar-vertical>
+
+<ngx-charts-bar-horizontal [view]="view" [results]="results" [gradient]="gradient" [scheme]="scheme" [xAxis]="xAxis"
+	[yAxis]="yAxis" [legend]="legend" [legendPosition]="legendPosition" [legendTitle]="legendTitle"
+	[xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [showXAxisLabel]="showXAxisLabel"
+	[showYAxisLabel]="showYAxisLabel" [showGridLines]="showGridLines">
+</ngx-charts-bar-horizontal>
+
+<ngx-charts-bar-vertical-2d [view]="view" [results]="resultsSeries" [gradient]="gradient" [scheme]="scheme"
+	[xAxis]="xAxis" [yAxis]="yAxis" [legend]="legend" [legendPosition]="legendPositionContagiados"
+	[legendTitle]="legendTitleContagiados" [xAxisLabel]="xAxisLabelCountries" [yAxisLabel]="yAxixLabelContagiados"
+	[showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [showGridLines]="showGridLines">
+</ngx-charts-bar-vertical-2d>
+
+<ngx-charts-line-chart [view]="view" [results]="resultsSeries" [gradient]="gradient" [scheme]="scheme" [xAxis]="xAxis"
+	[yAxis]="yAxis" [legend]="legend" [legendPosition]="legendPosition" [legendTitle]="legendTitle"
+	[xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [showXAxisLabel]="showXAxisLabel"
+	[showYAxisLabel]="showYAxisLabel" [showGridLines]="showGridLines">
+</ngx-charts-line-chart>
+
+<ngx-charts-pie-chart [view]="view" [results]="results" [gradient]="gradient" [scheme]="scheme" [labels]="labels"
+	[legend]="legend" [legendPosition]="legendPosition" [legendTitle]="legendTitle" [doughnut]="doughnut"
+	(select)="pieSelected($event)">
+</ngx-charts-pie-chart>
+
+<ngx-charts-bar-vertical [view]="viewCovid" [results]="dataCovid" [gradient]="gradient" [scheme]="scheme"
+	[xAxis]="xAxis" [yAxis]="yAxis" [legend]="legend" [legendPosition]="legendPosition" [legendTitle]="legendTitleCovid"
+	[xAxisLabel]="xAxisLabelCovid" [yAxisLabel]="yAxisLabelCovid" [showXAxisLabel]="showXAxisLabel"
+	[showYAxisLabel]="showYAxisLabel" [showGridLines]="showGridLines">
+</ngx-charts-bar-vertical>
