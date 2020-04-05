@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="history col-9">
+			<form [formGroup]="group">
+				<h2>Datos del paciente</h2>
+				<div class="form-group">
+					<input type="text" class="form-control" name="nombrePaciente" formControlName="nombrePaciente"
+						placeholder="Nombre del paciente">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name="apellidoPaciente" formControlName="apellidoPaciente"
+						placeholder="Apellido del paciente">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name="dni" formControlName="dni" placeholder="DNI">
+				</div>
+				<div class="form-group">
+					<input type="number" class="form-control" name="edad" formControlName="edad">
+				</div>
+				<h2>Datos del médico</h2>
+				<div class="form-group">
+					<input type="text" class="form-control" name="nombreMedico" formControlName="nombreMedico"
+						placeholder="Nombre del médico">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name="apellidoMedico" formControlName="apellidoMedico"
+						placeholder="Apellido del médico">
+				</div>
+				<h2>Diagnósticos</h2>
+				<div class="form-group">
+					<textarea name="diagnostico01" formControlName="diagnostico01" rows="10" class="form-control"
+						placeholder="Diagnóstico 01"></textarea>
+				</div>
+				<div class="form-group">
+					<textarea name="diagnostico02" formControlName="diagnostico02" rows="10" class="form-control"
+						placeholder="Diagnóstico 02"></textarea>
+				</div>
+				<div class="form-group">
+					<textarea name="diagnostico03" formControlName="diagnostico03" rows="10" class="form-control"
+						placeholder="Diagnóstico 03"></textarea>
+				</div>
+			</form>
+		</div>
+		<div class="actions col-3 d-flex flex-column">
+			<button class="btn btn-block btn-success" (click)="actionPDF('open')">Show PDF</button>
+			<button class="btn btn-block btn-primary" (click)="actionPDF('download')">Download PDF</button>
+			<button class="btn btn-block btn-danger" (click)="actionPDF('print')">Print PDF</button>
+		</div>
+	</div>
+</div>

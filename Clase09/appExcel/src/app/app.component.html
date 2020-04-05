@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row justify-content-center">
+		<form [formGroup]="group" class="col-8">
+			<div class="form-group">
+				<input type="text" name="nombre" formControlName="nombre" class="form-control">
+			</div>
+			<div class="form-group">
+				<input type="text" name="apellido" formControlName="apellido" class="form-control">
+			</div>
+			<div>
+				<button class="btn btn-success btn-block" (click)="add()" [disabled]="group.invalid">
+					Agregar
+				</button>
+			</div>
+		</form>
+		<table class="table table-striped col-8">
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+			</tr>
+			<tr *ngFor="let user of users">
+				<td>{{user.nombre}}</td>
+				<td>{{user.apellido}}</td>
+			</tr>
+		</table>
+		<button class="btn btn-primary btn-block" (click)="exportToExcel()">Exportar a Excel</button>
+	</div>
+</div>

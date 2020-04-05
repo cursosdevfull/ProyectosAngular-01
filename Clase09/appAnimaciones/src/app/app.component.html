@@ -1,0 +1,10 @@
+<!-- <app-open-close></app-open-close> -->
+<header>
+	<a routerLink="home" routerLinkActive="active">Home</a>
+	<a routerLink="about" routerLinkActive="active">About</a>
+	<a routerLink="contact" routerLinkActive="active">Contact</a>
+</header>
+<div [@routeAnimations]="route && route.activatedRouteData && route.activatedRouteData['animation']">
+	<router-outlet #route="outlet">
+	</router-outlet>
+</div>
